@@ -12,6 +12,9 @@
             --main-white: #fff;
             --main-shadow: rgba(33, 150, 243, 0.13);
         }
+        * {
+            box-sizing: border-box;
+        }
         body {
             background: linear-gradient(135deg, var(--main-blue-light) 0%, var(--main-blue) 100%);
             font-family: 'Segoe UI', Arial, sans-serif;
@@ -72,6 +75,7 @@
             outline: none;
             transition: border 0.2s, box-shadow 0.2s;
             box-shadow: 0 2px 8px 0 var(--main-shadow);
+            box-sizing: border-box;
         }
         input[type="text"]:focus, input[type="password"]:focus {
             border: 1.5px solid var(--main-blue-dark);
@@ -90,6 +94,7 @@
             transition: background 0.2s, box-shadow 0.2s;
             box-shadow: 0 2px 8px 0 var(--main-shadow);
             margin-top: 0.5rem;
+            box-sizing: border-box;
         }
         .btn-login:hover {
             background: linear-gradient(90deg, var(--main-blue-dark) 0%, var(--main-blue) 100%);

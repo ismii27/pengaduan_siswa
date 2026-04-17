@@ -22,7 +22,17 @@ class LoginController extends Controller
 
         if (Auth::attempt(['username' => $credentials['username'], 'password' => $credentials['password']])) {
             $request->session()->regenerate();
-            return redirect()->intended('dashboard');
+            
+            $user = Auth::user();
+            
+            // Redirect berdasarkan role
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->role === 'siswa') {
+                return redirect()->route('siswa.dashboard');
+            }
+            
+            return redirect()->route('dashboard');
         }
 
         return back()->with('error', 'Username atau password salah.');

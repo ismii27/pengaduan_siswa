@@ -133,7 +133,6 @@
         <div class="logo">Pengaduan Siswa</div>
         <nav>
             <a href="#" class="active">Laporan Pengaduan Siswa</a>
-            <a href="#">Data User</a>
         </nav>
     </div>
     <div class="main-content">

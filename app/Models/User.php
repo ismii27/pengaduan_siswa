@@ -10,12 +10,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
-#[Fillable(['username', 'password', 'nama', 'role'])]
-#[Hidden(['password'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
+
+    protected $fillable = ['username', 'email', 'password', 'nama', 'foto_profil', 'role'];
+
+    protected $hidden = ['password'];
 
     /**
      * Get the attributes that should be cast.
@@ -27,5 +29,10 @@ class User extends Authenticatable
         return [
             'password' => 'hashed',
         ];
+    }
+
+    public function siswa()
+    {
+        return $this->hasOne(Siswa::class, 'id_user');
     }
 }
